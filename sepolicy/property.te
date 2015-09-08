@@ -1,0 +1,2 @@
+type ctl_gsm0710muxd_prop, property_type;
+type persist_ril_prop, property_type;

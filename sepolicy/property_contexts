@@ -1,0 +1,7 @@
+ctl.gsm0710muxd u:object_r:ctl_gsm0710muxd_prop:s0
+ctl.gsm0710muxd-s u:object_r:ctl_gsm0710muxd-s_prop:s0
+ctl.gsm0710muxd-d u:object_r:ctl_gsm0710muxd-d_prop:s0
+ctl.gsm0710muxdmd2 u:object_r:ctl_gsm0710muxdmd2_prop:s0
+
+persist.ril u:object_r:persist_ril_prop:s0
+

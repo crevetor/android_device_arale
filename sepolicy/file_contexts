@@ -1,0 +1,9 @@
+/dev/block/mmcblk[0-9a-z]* u:object_r:mmcblk_device:s0
+/dev/ccci.* 		u:object_r:ccci_device:s0
+/dev/pvr_sync(/.*)? 	u:object_r:gpu_device:s0
+/dev/mtk_disp.* 	u:object_r:graphics_device:s0
+/dev/ttyC0 	        u:object_r:gsm0710muxd_device:s0
+/dev/wmtWifi(/.*)? u:object_r:wlan_device:s0
+/system/bin/gsm0710muxdmd2 u:object_r:gsm0710muxdmd2_exec:s0
+/system/bin/gsm0710muxd u:object_r:gsm0710muxd_exec:s0
+/system/bin/mtkrild u:object_r:mtkrild_exec:s0

@@ -1,0 +1,114 @@
+# ==============================================
+# Policy File of /system/bingsm0710muxd Executable File 
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type mtkrild_exec , exec_type, file_type;
+type mtkrild ,domain;
+
+# ==============================================
+# Android Policy Rule
+# ==============================================
+
+# ==============================================
+# NSA Policy Rule
+# ==============================================
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+permissive mtkrild;
+init_daemon_domain(mtkrild)
+net_domain(mtkrild)
+
+# Import from mtkrild.te
+allow mtkrild self:netlink_route_socket nlmsg_write;
+allow mtkrild kernel:system module_request;
+unix_socket_connect(mtkrild, property, init)
+allow mtkrild self:capability { setuid net_admin net_raw };
+allow mtkrild alarm_device:chr_file rw_file_perms;
+allow mtkrild cgroup:dir create_dir_perms;
+allow mtkrild radio_device:chr_file rw_file_perms;
+allow mtkrild radio_device:blk_file r_file_perms;
+allow mtkrild mtd_device:dir search;
+allow mtkrild efs_file:dir create_dir_perms;
+allow mtkrild efs_file:file create_file_perms;
+allow mtkrild shell_exec:file rx_file_perms;
+allow mtkrild bluetooth_efs_file:file r_file_perms;
+allow mtkrild bluetooth_efs_file:dir r_dir_perms;
+allow mtkrild radio_data_file:dir rw_dir_perms;
+allow mtkrild radio_data_file:file create_file_perms;
+allow mtkrild sdcard_type:dir r_dir_perms;
+allow mtkrild system_data_file:dir r_dir_perms;
+allow mtkrild system_data_file:file r_file_perms;
+allow mtkrild system_file:file x_file_perms;
+
+# property service
+allow mtkrild radio_prop:property_service set;
+allow mtkrild net_radio_prop:property_service set;
+allow mtkrild system_radio_prop:property_service set;
+auditallow mtkrild net_radio_prop:property_service set;
+auditallow mtkrild system_radio_prop:property_service set;
+
+# Read/Write to uart driver (for GPS)
+allow mtkrild gps_device:chr_file rw_file_perms;
+
+allow mtkrild tty_device:chr_file rw_file_perms;
+
+# Allow mtkrild to create and use netlink sockets.
+allow mtkrild self:netlink_socket create_socket_perms;
+allow mtkrild self:netlink_kobject_uevent_socket create_socket_perms;
+
+# Access to wake locks
+wakelock_use(mtkrild)
+
+allow mtkrild self:socket create_socket_perms;
+
+# 20131024 CTS_01
+allow mtkrild ctl_rildaemon_prop:property_service set;
+allow mtkrild device:dir { write add_name };
+allow mtkrild device:lnk_file create;
+allow mtkrild devpts:chr_file setattr;
+allow mtkrild devpts:chr_file { read write ioctl open };
+allow mtkrild property_socket:sock_file { read write };
+allow mtkrild property_socket:unix_stream_socket connectto;
+allow mtkrild rild_socket:unix_stream_socket { connectto read write };
+allow mtkrild ccci_device:chr_file { read write ioctl open };
+allow mtkrild self:capability { setuid fowner chown };
+allow mtkrild mmcblk_device:blk_file { open read write };
+allow mtkrild sysfs_vcorefs_pwrctrl:file { write open } ; 
+
+
+
+# 20131024 Sanity_03
+allow mtkrild device:dir remove_name;
+
+
+# 20131028 Sanity_05
+allow mtkrild device:lnk_file unlink;
+
+
+# 20131028 Sanity_07
+allow mtkrild gsm0710muxd_device:chr_file { read write ioctl open };
+#allow mtkrild linker_exec:file read;
+
+
+
+# 20131122 Add Set Property Rule
+allow mtkrild persist_ril_prop:property_service set;
+
+# 20131213 KKMR1_CQ_01
+#allow mtkrild aee_aed:process sigchld;
+#allow mtkrild aee_aed:unix_stream_socket connectto;
+#allow mtkrild block_device:blk_file read;
+
+
+# 20131213 KKMR1_CQ_CTS_02
+#allow mtkrild aee_aed:process sigchld;
+#allow mtkrild aee_aed:unix_stream_socket connectto;
+#allow mtkrild block_device:blk_file read;
+

@@ -1,0 +1,4 @@
+type wlan_device, dev_type;
+type gsm0710muxd_device, dev_type;
+type ccci_device, dev_type;
+type mmcblk_device, dev_type;
