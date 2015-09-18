@@ -16,6 +16,18 @@ else
 	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
 
+PRODUCT_PACKAGES += \
+    libxlog
+
+PRODUCT_PACKAGES += \
+    libfakeaudio
+
+# audio
+PRODUCT_PACKAGES += \
+        audio.r_submix.default \
+        audio.a2dp.default \
+        libblisrc
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
