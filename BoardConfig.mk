@@ -22,6 +22,10 @@ BOARD_KERNEL_CMDLINE :=
 BOARD_KERNEL_BASE := 0x40000000
 BOARD_KERNEL_PAGESIZE := 4096
 
+# TODO add mtkimg as an external host binary instead of using an outside-built version
+BOARD_CUSTOM_MKBOOTIMG := /media/antoine/SlowStore/dev/mx4-sailport/mtkimg/build/mtkimg
+BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_FOLDER)/boot.mk
+
 # fix this up by examining /proc/mtd on a running device
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16777216
