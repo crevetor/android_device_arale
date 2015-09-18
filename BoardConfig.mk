@@ -22,6 +22,12 @@ BOARD_KERNEL_CMDLINE :=
 BOARD_KERNEL_BASE := 0x40000000
 BOARD_KERNEL_PAGESIZE := 4096
 
+# BT
+BOARD_HAVE_BLUETOOTH := true
+BOARD_HAVE_BLUETOOTH_MTK := true
+BOARD_BLUETOOTH_DOES_NOT_USE_RFKILL := true
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_FOLDER)/bluetooth
+
 # TODO add mtkimg as an external host binary instead of using an outside-built version
 BOARD_CUSTOM_MKBOOTIMG := /media/antoine/SlowStore/dev/mx4-sailport/mtkimg/build/mtkimg
 BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_FOLDER)/boot.mk
