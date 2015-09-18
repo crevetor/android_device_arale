@@ -17,6 +17,21 @@ endif
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/root/meta_init.modem.rc:root/meta_init.modem.rc \
+    $(LOCAL_PATH)/root/init.mt6595.rc:root/init.mt6595.rc \
+    $(LOCAL_PATH)/root/init.modem.rc:root/init.modem.rc \
+    $(LOCAL_PATH)/root/init.xlog.rc:root/init.xlog.rc \
+    $(LOCAL_PATH)/root/init.project.rc:root/init.project.rc \
+    $(LOCAL_PATH)/root/init.mt6595.usb.rc:root/init.mt6595.usb.rc \
+    $(LOCAL_PATH)/root/ueventd.rc:root/ueventd.rc \
+    $(LOCAL_PATH)/root/init.rc:root/init.rc \
+    $(LOCAL_PATH)/root/fstab.mt6595:root/fstab.mt6595 \
+    $(LOCAL_PATH)/root/init.ssd.rc:root/init.ssd.rc \
+    $(LOCAL_PATH)/root/meta_init.project.rc:root/meta_init.project.rc \
+    $(LOCAL_PATH)/root/init.aee.rc:root/init.aee.rc \
+    $(LOCAL_PATH)/root/meta_init.rc:root/meta_init.rc \
+    $(LOCAL_PATH)/root/init:root/init
 # WIFI
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
