@@ -53,14 +53,44 @@ WIFI_DRIVER_FW_PATH_P2P:=P2P
 # telephony
 #BOARD_RIL_CLASS := ../../../$(DEVICE_FOLDER)/ril
 
-BOARD_SEPOLICY_DIRS += \
-		       $(DEVICE_FOLDER)/sepolicy
+BOARD_SEPOLICY_DIRS += $(DEVICE_FOLDER)/sepolicy
 
 BOARD_SEPOLICY_UNION += \
 			file_contexts \
-			property_contexts \
-			device.te \
 			file.te \
+			property_contexts \
 			property.te \
-			radio.te \
-			netd.te
+			service_contexts \
+			service.te \
+			device.te \
+			mtkrild.te \
+			gsm0710muxd.te \
+			ccci_mdinit.te \
+			emdlogger.te \
+			immvibed.te \
+			netd.te	\
+			nvram_agent_binder.te \
+			mediaserver.te \
+			vold.te \
+			mnld.te \
+			ccci_fsd.te \
+			em_svr.te \
+			audiocmdservice_atci.te \
+			atci_service.te \
+			aal.te \
+			MtkCodecService.te \
+			sn.te \
+			ppl_agent.te \
+			thermal.te \
+			thermald.te \
+			guiext-server.te \
+			batterywarning.te \
+			wifi2agps.te \
+			matv.te \
+			netdiag.te \
+			mobile_log_d.te \
+			mtk_6620_launcher.te \
+			autokd.te \
+			mtk_agpsd.te \
+			install_recovery.te \
+			radio.te
