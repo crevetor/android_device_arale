@@ -64,6 +64,15 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf
 
 
+ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=0
+ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=0
+ADDITIONAL_DEFAULT_PROPERTIES += ro.allow.mock.location=1
+ADDITIONAL_DEFAULT_PROPERTIES += persist.sys.usb.config=mtp
+
+DEFAULT_PROPERTY_OVERRIDES += ro.adb.secure=0
+DEFAULT_PROPERTY_OVERRIDES += ro.secure=0
+DEFAULT_PROPERTY_OVERRIDES += ro.allow.mock.location=1
+
 $(call inherit-product, build/target/product/full.mk)
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
