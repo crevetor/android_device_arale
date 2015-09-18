@@ -1,0 +1,6 @@
+type audiocmdservice_atci_exec, exec_type, file_type;
+type audiocmdservice_atci ,domain;
+
+permissive audiocmdservice_atci;
+init_daemon_domain(audiocmdservice_atci)
+domain_auto_trans(init, audiocmdservice_atci_exec, audiocmdservice_atci)

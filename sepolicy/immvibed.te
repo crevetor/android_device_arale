@@ -1,0 +1,12 @@
+type immvibed_exec, exec_type, file_type;
+type immvibed ,domain;
+
+
+permissive immvibed;
+init_daemon_domain(immvibed)
+domain_auto_trans(init, immvibed_exec, immvibed)
+
+allow immvibed immvibed_device : chr_file { ioctl read write getattr lock append open } ;
+allow immvibed pipe_device : dir { ioctl read write getattr add_name search open } ; 
+allow immvibed pipe_device : fifo_file { ioctl read write create getattr setattr lock append unlink link rename open } ;
+allow immvibed immvibed : capability { dac_override setgid setuid sys_nice } ; 

@@ -1,0 +1,9 @@
+type wifi2agps_exec, exec_type, file_type;
+type wifi2agps ,domain;
+
+permissive wifi2agps;
+init_daemon_domain(wifi2agps)
+domain_auto_trans(init, wifi2agps_exec, wifi2agps)
+allow wifi2agps self:netlink_socket { write getattr setopt read bind create };
+allow wifi2agps agpsd_data_file:sock_file write;
+allow wifi2agps mtk_agpsd:unix_dgram_socket sendto;

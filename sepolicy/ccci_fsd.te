@@ -1,0 +1,15 @@
+type ccci_fsd_exec, exec_type, file_type;
+type ccci_fsd ,domain;
+
+permissive ccci_fsd;
+init_daemon_domain(ccci_fsd)
+domain_auto_trans(init, ccci_fsd_exec, ccci_fsd)
+wakelock_use(ccci_fsd)
+
+allow ccci_fsd ccci_device:chr_file { read write ioctl open };
+allow ccci_fsd system_data_file:dir { read open };
+allow ccci_fsd system_data_file:file { write open };
+allow ccci_fsd protect_f_data_file:dir getattr;
+allow ccci_fsd protect_f_data_file:file { read getattr open };
+allow ccci_fsd protect_s_data_file:dir getattr;
+allow ccci_fsd protect_s_data_file:file { read getattr open };

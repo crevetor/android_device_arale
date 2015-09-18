@@ -1,0 +1,1 @@
+allow vold mmcblk_device:blk_file { read write ioctl open getattr };

@@ -1,0 +1,13 @@
+type mnld_exec , exec_type, file_type;
+type mnld ,domain;
+
+permissive mnld;
+init_daemon_domain(mnld)
+domain_auto_trans(init, mnld_exec, mnld)
+allow mnld agpsd_data_file:dir { write remove_name add_name };
+allow mnld agpsd_data_file:sock_file { create unlink setattr };
+allow mnld mmcblk_device:blk_file { read write open };
+allow mnld sysfs:file write;
+allow mnld system_data_file:dir { write remove_name add_name };
+allow mnld system_data_file:file open;
+allow mnld system_data_file:sock_file { create unlink setattr };

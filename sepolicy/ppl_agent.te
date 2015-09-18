@@ -1,0 +1,9 @@
+type ppl_agent_exec, exec_type, file_type;
+type ppl_agent ,domain;
+
+permissive ppl_agent;
+init_daemon_domain(ppl_agent)
+domain_auto_trans(init, ppl_agent_exec, ppl_agent)
+binder_use(ppl_agent)
+
+allow ppl_agent ppl_agent_service : service_manager add ; 

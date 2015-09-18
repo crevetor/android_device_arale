@@ -1,0 +1,8 @@
+type MtkCodecService_exec, exec_type, file_type;
+type MtkCodecService ,domain;
+
+permissive MtkCodecService;
+init_daemon_domain(MtkCodecService)
+domain_auto_trans(init, MtkCodecService_exec, MtkCodecService)
+binder_use(MtkCodecService)
+allow MtkCodecService mtk_codec_service_service : service_manager add ;

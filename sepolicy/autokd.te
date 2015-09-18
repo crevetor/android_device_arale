@@ -1,0 +1,14 @@
+type autokd_exec, exec_type, file_type;
+type autokd ,domain;
+
+permissive autokd;
+init_daemon_domain(autokd)
+domain_auto_trans(init, autokd_exec, autokd)
+unix_socket_connect(autokd, property, init)
+
+allow autokd mmcblk_device:blk_file { read write open };
+allow autokd self:netlink_kobject_uevent_socket { read bind create setopt };
+allow autokd self:tcp_socket create;
+allow autokd sysfs:file write;
+allow autokd system_data_file:dir { read open };
+allow autokd system_data_file:file { write open };

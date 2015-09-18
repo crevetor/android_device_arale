@@ -1,0 +1,19 @@
+type mtk_agpsd_exec, exec_type, file_type;
+type mtk_agpsd ,domain;
+
+permissive mtk_agpsd;
+init_daemon_domain(mtk_agpsd)
+domain_auto_trans(init, mtk_agpsd_exec, mtk_agpsd)
+unix_socket_send(mtk_agpsd, mnld, mnld)
+
+allow mtk_agpsd agpsd_data_file : file { ioctl read write create getattr setattr lock append unlink link rename open } ; 
+allow mtk_agpsd agpsd_data_file : dir { ioctl read write create getattr setattr unlink link rename add_name remove_name reparent search rmdir open } ; 
+allow mtk_agpsd agpsd_data_file : sock_file { ioctl read write create getattr setattr lock append unlink link rename open } ;
+allow mtk_agpsd agps_device : chr_file { ioctl read write getattr lock append open } ; 
+allow mtk_agpsd mtk_agpsd : tcp_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind connectto newconn acceptfrom node_bind name_connect } ; 
+allow mtk_agpsd mtk_agpsd : udp_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind node_bind } ; 
+allow mtk_agpsd mtk_agpsd : rawip_socket { ioctl read write create getattr setattr append bind connect getopt setopt shutdown } ; 
+allow mtk_agpsd mtk_agpsd : unix_stream_socket { ioctl read write create getattr setattr append bind connect listen accept getopt setopt shutdown connectto } ; 
+allow mtk_agpsd mtk_agpsd : unix_dgram_socket { ioctl read write create getattr setattr append bind connect getopt setopt shutdown sendto } ; 
+allow mtk_agpsd mtk_agpsd : netlink_route_socket { ioctl read write create getattr setattr append bind connect getopt setopt shutdown nlmsg_read } ;
+allow mtk_agpsd ttySDIO_device : chr_file { ioctl read write create getattr setattr lock append unlink link rename open } ; 

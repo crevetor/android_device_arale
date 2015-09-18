@@ -1,0 +1,6 @@
+type thermal_exec, exec_type, file_type;
+type thermal ,domain;
+
+permissive thermal;
+init_daemon_domain(thermal)
+domain_auto_trans(init, thermal_exec, thermal)

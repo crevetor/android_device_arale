@@ -4,6 +4,56 @@
 /dev/mtk_disp.* 	u:object_r:graphics_device:s0
 /dev/ttyC0 	        u:object_r:gsm0710muxd_device:s0
 /dev/wmtWifi(/.*)? u:object_r:wlan_device:s0
-/system/bin/gsm0710muxdmd2 u:object_r:gsm0710muxdmd2_exec:s0
+/dev/devmap(/.*)? u:object_r:devmap_device:s0
+/dev/misc-sd(/.*)? u:object_r:misc_sd_device:s0
+/dev/camera-isp(/.*)? u:object_r:camera_isp_device:s0
+/dev/kd_camera_hw(/.*)? u:object_r:kd_camera_hw_device:s0
+/dev/kd_camera_flashlight(/.*)? u:object_r:kd_camera_flashlight_device:s0
+/dev/i2c-3 u:object_r:i2c_device:s0
+/dev/CAM_CAL_DRV(/.*)? u:object_r:CAM_CAL_DRV_device:s0
+/dev/tspdrv             u:object_r:immvibed_device:s0
+/dev/pipes(/.*)?        u:object_r:pipe_device:s0
+/dev/socket/mnld(/.*)? u:object_r:mnld_socket:s0
+/dev/stpgps        u:object_r:mnld_device:s0
+/dev/protect_f(/.*)? u:object_r:protect_f_device:s0
+/dev/protect_s(/.*)? u:object_r:protect_s_device:s0
+/dev/socket/atci-service(/.*)? u:object_r:atci_service_socket:s0
+/dev/aal_als(/.*)? u:object_r:aal_als_device:s0
+/dev/socket/netdiag(/.*)? u:object_r:netdiag_socket:s0
+/dev/stpwmt(/.*)? u:object_r:stpwmt_device:s0
+/dev/ttyC2         u:object_r:agps_device:s0
+/dev/ttySDIO.* u:object_r:ttySDIO_device:s0
+
+/sys/power/vcorefs/pwr_ctrl -- u:object_r:sysfs_vcorefs_pwrctrl:s0
+
+/data/agps_supl(/.*)?    u:object_r:agpsd_data_file:s0
+
+/system/bin/immvibed    u:object_r:immvibed_exec:s0
 /system/bin/gsm0710muxd u:object_r:gsm0710muxd_exec:s0
 /system/bin/mtkrild u:object_r:mtkrild_exec:s0
+/system/bin/ccci_mdinit u:object_r:ccci_mdinit_exec:s0
+/system/xbin/mnld u:object_r:mnld_exec:s0
+/system/bin/ccci_fsd u:object_r:ccci_fsd_exec:s0
+/system/bin/nvram_agent_binder u:object_r:nvram_agent_binder_exec:s0
+/system/bin/emdlogger[0-9]+ u:object_r:emdlogger_exec:s0
+/system/bin/em_svr u:object_r:em_svr_exec:s0
+/system/bin/audiocmdservice_atci u:object_r:audiocmdservice_atci_exec:s0
+/system/bin/atci_service u:object_r:atci_service_exec:s0
+/system/bin/aal u:object_r:aal_exec:s0
+/system/bin/MtkCodecService u:object_r:MtkCodecService_exec:s0
+/system/bin/sn u:object_r:sn_exec:s0
+/system/bin/ppl_agent u:object_r:ppl_agent_exec:s0
+/system/bin/thermal u:object_r:thermal_exec:s0
+/system/bin/thermald u:object_r:thermald_exec:s0
+/system/bin/guiext-server u:object_r:guiext-server_exec:s0
+/system/bin/batterywarning u:object_r:batterywarning_exec:s0
+/system/bin/wifi2agps u:object_r:wifi2agps_exec:s0
+/system/bin/matv u:object_r:matv_exec:s0
+/system/bin/netdiag u:object_r:netdiag_exec:s0
+/system/bin/mobile_log_d u:object_r:mobile_log_d_exec:s0
+/system/bin/6620_launcher u:object_r:mtk_6620_launcher_exec:s0
+/system/bin/autokd u:object_r:autokd_exec:s0
+/system/bin/mtk_agpsd u:object_r:mtk_agpsd_exec:s0
+
+/protect_f(/.*)?         u:object_r:protect_f_data_file:s0
+/protect_s(/.*)?         u:object_r:protect_s_data_file:s0

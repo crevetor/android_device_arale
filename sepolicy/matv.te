@@ -1,0 +1,8 @@
+type matv_exec, exec_type, file_type;
+type matv ,domain;
+
+permissive matv;
+init_daemon_domain(matv)
+domain_auto_trans(init, matv_exec, matv)
+binder_use(matv)
+binder_call(matv, servicemanager)

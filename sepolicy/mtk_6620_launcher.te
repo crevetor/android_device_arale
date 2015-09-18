@@ -1,0 +1,8 @@
+type mtk_6620_launcher_exec, exec_type, file_type;
+type mtk_6620_launcher ,domain;
+
+permissive mtk_6620_launcher;
+init_daemon_domain(mtk_6620_launcher)
+domain_auto_trans(init, mtk_6620_launcher_exec, mtk_6620_launcher)
+unix_socket_connect(mtk_6620_launcher, property, init)
+allow mtk_6620_launcher stpwmt_device:chr_file { read write ioctl open };

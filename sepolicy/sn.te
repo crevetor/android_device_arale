@@ -1,0 +1,6 @@
+type sn_exec, exec_type, file_type;
+type sn ,domain;
+
+permissive sn;
+init_daemon_domain(sn)
+domain_auto_trans(init, sn_exec, sn)

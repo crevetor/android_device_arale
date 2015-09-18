@@ -1,0 +1,9 @@
+type emdlogger_exec , exec_type, file_type;
+type emdlogger ,domain;
+
+permissive emdlogger;
+init_daemon_domain(emdlogger)
+domain_auto_trans(init, emdlogger_exec, emdlogger)
+unix_socket_connect(emdlogger, property, init)
+allow emdlogger system_data_file:fifo_file { read open };
+allow emdlogger system_data_file:file open;

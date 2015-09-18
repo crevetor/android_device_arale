@@ -1,0 +1,14 @@
+wakelock_use(mediaserver)
+allow mediaserver ccci_device : chr_file { ioctl read write open } ; 
+allow mediaserver camera_isp_device : chr_file { ioctl read write open } ;
+allow mediaserver kd_camera_hw_device : chr_file { read write open ioctl };
+allow mediaserver kd_camera_flashlight_device:chr_file { read write ioctl open };
+allow mediaserver devmap_device:chr_file { read ioctl open };
+allow mediaserver system_server:binder { transfer call };
+allow mediaserver system_data_file:file { open read write };
+allow mediaserver mmcblk_device:blk_file { open read write };
+allow mediaserver i2c_device:chr_file { read ioctl open write };
+allow mediaserver CAM_CAL_DRV_device:chr_file { read ioctl open write };
+allow mediaserver audiohal_prop : property_service set ;
+allow mediaserver self:capability { sys_nice ipc_lock };
+allow mediaserver system_server:unix_stream_socket { read write };

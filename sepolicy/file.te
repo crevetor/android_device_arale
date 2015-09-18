@@ -1,1 +1,4 @@
 type sysfs_vcorefs_pwrctrl, fs_type, sysfs_type;
+type protect_f_data_file, fs_type;
+type protect_s_data_file, fs_type;
+type agpsd_data_file, fs_type;

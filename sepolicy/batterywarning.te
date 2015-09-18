@@ -1,0 +1,6 @@
+type batterywarning_exec, exec_type, file_type;
+type batterywarning ,domain;
+
+permissive batterywarning;
+init_daemon_domain(batterywarning)
+domain_auto_trans(init, batterywarning_exec, batterywarning)

@@ -1,0 +1,9 @@
+type netdiag_exec, exec_type, file_type;
+type netdiag ,domain;
+
+permissive netdiag;
+init_daemon_domain(netdiag)
+domain_auto_trans(init, netdiag_exec, netdiag)
+unix_socket_connect(netdiag, property, init)
+allow netdiag self:capability { setuid setgid };
+

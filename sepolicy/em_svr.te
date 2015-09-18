@@ -1,0 +1,6 @@
+type em_svr_exec, exec_type, file_type;
+type em_svr ,domain;
+
+permissive em_svr;
+init_daemon_domain(em_svr)
+domain_auto_trans(init, em_svr_exec, em_svr)

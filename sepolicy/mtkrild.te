@@ -51,8 +51,8 @@ allow mtkrild system_file:file x_file_perms;
 allow mtkrild radio_prop:property_service set;
 allow mtkrild net_radio_prop:property_service set;
 allow mtkrild system_radio_prop:property_service set;
-auditallow mtkrild net_radio_prop:property_service set;
-auditallow mtkrild system_radio_prop:property_service set;
+allow mtkrild net_radio_prop:property_service set;
+allow mtkrild system_radio_prop:property_service set;
 
 # Read/Write to uart driver (for GPS)
 allow mtkrild gps_device:chr_file rw_file_perms;
@@ -81,7 +81,6 @@ allow mtkrild ccci_device:chr_file { read write ioctl open };
 allow mtkrild self:capability { setuid fowner chown };
 allow mtkrild mmcblk_device:blk_file { open read write };
 allow mtkrild sysfs_vcorefs_pwrctrl:file { write open } ; 
-
 
 
 # 20131024 Sanity_03

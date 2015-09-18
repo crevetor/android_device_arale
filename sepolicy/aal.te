@@ -1,0 +1,13 @@
+type aal_exec, exec_type, file_type;
+type aal ,domain;
+
+permissive aal;
+init_daemon_domain(aal)
+domain_auto_trans(init, aal_exec, aal)
+binder_use(aal)
+
+allow aal aal_als_device : chr_file { ioctl read open } ;
+allow aal aal_service : service_manager add ;
+
+allow aal graphics_device : dir search ; 
+allow aal graphics_device : chr_file { ioctl read open } ; 

@@ -1,0 +1,8 @@
+type thermald_exec, exec_type, file_type;
+type thermald ,domain;
+
+permissive thermald;
+init_daemon_domain(thermald)
+domain_auto_trans(init, thermald_exec, thermald)
+binder_use(thermald)
+allow thermald proc:file write;

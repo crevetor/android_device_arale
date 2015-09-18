@@ -1,0 +1,11 @@
+type mobile_log_d_exec, exec_type, file_type;
+type mobile_log_d ,domain;
+
+permissive mobile_log_d;
+init_daemon_domain(mobile_log_d)
+domain_auto_trans(init, mobile_log_d_exec, mobile_log_d)
+unix_socket_connect(mobile_log_d, property, init)
+allow mobile_log_d shell_exec:file { read execute open execute_no_trans };
+allow mobile_log_d system_data_file:file { open append setattr };
+allow mobile_log_d system_file:file execute_no_trans;
+allow mobile_log_d self:capability { setuid setgid };
