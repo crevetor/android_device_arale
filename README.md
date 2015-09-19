@@ -25,10 +25,6 @@ Not working
 * Camera (video)
 * Video encoding/decoding
 
-Issues
-======
-* Unable to turn the screen on once the screen has been turned off
-
 How to build
 ============
 
