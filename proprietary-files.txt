@@ -175,6 +175,8 @@ lib/libextsys.so
 lib/libwifitest.so
 lib/libem_support_jni.so
 lib/libmnl.so
+lib/libpq_cust.so
+lib/libmemoryDumpEncoder.so
 
 etc/.tp/.ht120.mtc
 etc/.tp/thermal.conf
