@@ -34,13 +34,22 @@ import android.text.TextUtils;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.Rlog;
 import android.telephony.SignalStrength;
+import android.telephony.SmsMessage;
 import android.util.Log;
+import android.content.res.Resources;
+
+import com.android.internal.telephony.cdma.CdmaInformationRecords;
+import com.android.internal.telephony.dataconnection.DataCallResponse;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
 import java.io.IOException;
 import java.io.InputStream;
+
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+
 
 import com.android.internal.telephony.uicc.IccRecords;
 import com.android.internal.telephony.uicc.UiccController;
@@ -64,6 +73,8 @@ public class MediaTekRIL extends RIL implements CommandsInterface {
 
   static final int RIL_REQUEST_MTK_BASE = 2000;
   static final int RIL_REQUEST_DUAL_SIM_MODE_SWITCH = (RIL_REQUEST_MTK_BASE + 12);
+
+  private static final String OEM_IDENTIFIER = "QOEMHOOK";
 
 
 
@@ -902,7 +913,73 @@ cat libs/telephony/ril_unsol_commands.h \
     }
   }
 
+  private boolean isQcUnsolOemHookResp(ByteBuffer oemHookResponse) {
 
+      /* Check OEM ID in UnsolOemHook response */
+      if (oemHookResponse.capacity() < mHeaderSize) {
+          /*
+           * size of UnsolOemHook message is less than expected, considered as
+           * External OEM's message
+           */
+          Rlog.d(RILJ_LOG_TAG,
+                  "RIL_UNSOL_OEM_HOOK_RAW data size is " + oemHookResponse.capacity());
+          return false;
+      } else {
+          byte[] oemIdBytes = new byte[OEM_IDENTIFIER.length()];
+          oemHookResponse.get(oemIdBytes);
+          String oemIdString = new String(oemIdBytes);
+          Rlog.d(RILJ_LOG_TAG, "Oem ID in RIL_UNSOL_OEM_HOOK_RAW is " + oemIdString);
+          if (!oemIdString.equals(OEM_IDENTIFIER)) {
+              /* OEM ID not matched, considered as External OEM's message */
+              return false;
+          }
+      }
+      return true;
+  }
+
+  private void processUnsolOemhookResponse(ByteBuffer oemHookResponse) {
+      int responseId = 0, responseSize = 0, responseVoiceId = 0;
+
+      responseId = oemHookResponse.getInt();
+      Rlog.d(RILJ_LOG_TAG, "Response ID in RIL_UNSOL_OEM_HOOK_RAW is " + responseId);
+
+      responseSize = oemHookResponse.getInt();
+      if (responseSize < 0) {
+          Rlog.e(RILJ_LOG_TAG, "Response Size is Invalid " + responseSize);
+          return;
+      }
+
+      byte[] responseData = new byte[responseSize];
+      if (oemHookResponse.remaining() == responseSize) {
+          oemHookResponse.get(responseData, 0, responseSize);
+      } else {
+          Rlog.e(RILJ_LOG_TAG, "Response Size(" + responseSize
+                  + ") doesnot match remaining bytes(" +
+                  oemHookResponse.remaining() + ") in the buffer. So, don't process further");
+          return;
+      }
+
+      switch (responseId) {
+          case OEMHOOK_UNSOL_WWAN_IWLAN_COEXIST:
+              notifyWwanIwlanCoexist(responseData);
+              break;
+
+          case OEMHOOK_UNSOL_SIM_REFRESH:
+              notifySimRefresh(responseData);
+              break;
+
+          case QCRIL_EVT_HOOK_UNSOL_MODEM_CAPABILITY:
+              Rlog.d(RILJ_LOG_TAG, "QCRIL_EVT_HOOK_UNSOL_MODEM_CAPABILITY = mInstanceId"
+                      + mInstanceId);
+              notifyModemCap(responseData, mInstanceId);
+              break;
+
+          default:
+              Rlog.d(RILJ_LOG_TAG, "Response ID " + responseId
+                      + " is not served in this process.");
+              break;
+      }
+  }
 
   private Object
   responseOperator(Parcel p) {
