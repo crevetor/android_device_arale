@@ -31,6 +31,8 @@ lib/hw/sensors.mt6595.so
 lib/hw/gps.default.so
 lib/hw/lights.default.so
 lib/hw/mmsdk.default.so
+lib/hw/audio_policy.default.so
+lib/hw/audio_policy.stub.so
 lib/egl/egl.cfg
 
 lib/libgpu_aux.so
@@ -41,6 +43,14 @@ lib/libdpframework.so
 lib/libgralloc_extra.so
 lib/libm4u.so
 lib/libpq_prot.so
+lib/libmtk_drvb.so
+lib/libged.so
+lib/libgui_ext.so
+lib/libui.so
+lib/libperfservicenative.so
+lib/libui_ext.so
+
+# Codecs
 lib/libvcodecdrv.so
 lib/libmp4enc_sa.ca7.so
 lib/libvc1dec_sa.ca7.so
@@ -62,12 +72,17 @@ lib/libMtkOmxVenc.so
 lib/libMtkOmxVorbisEnc.so
 lib/libvcodec_utility.so
 lib/libvcodec_oal.so
-lib/libmtk_drvb.so
-lib/libged.so
-lib/libgui_ext.so
-lib/libui.so
-lib/libperfservicenative.so
-lib/libui_ext.so
+lib/libstagefright_omx.so
+lib/libstagefrighthw.so
+lib/libstagefright_memutil.so
+lib/libClearMotionFW.so
+lib/libmjc.so
+lib/libmhalImageCodec.so
+lib/libJpgDecPipe.so
+lib/libGdmaScalerPipe.so
+lib/libSwJpgCodec.so
+lib/libmmprofile.so
+
 
 #Camera
 lib/libcam.halsensor.so
