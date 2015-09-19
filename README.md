@@ -15,11 +15,14 @@ Working
 * Wifi
 * Sound
 * GPS
+* Camera (photo)
 
 Not working
 ===========
 * Vibration
 * Cellular
+* Camera (video)
+* Video encoding/decoding
 
 Issues
 ======
