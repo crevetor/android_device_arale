@@ -1137,6 +1137,28 @@ cat libs/telephony/ril_unsol_commands.h \
     send(rr);
   }
 
+public void setPhoneRatFamily(final int i, final Message message) {
+    final RILRequest obtain = RILRequest.obtain(131, message);
+    obtain.mParcel.writeInt(1);
+    obtain.mParcel.writeInt(i);
+    this.riljLog(obtain.serialString() + "> " + requestToString(obtain.mRequest) + ": " + i);
+    this.send(obtain);
+}
+
+public void setModemPower(final boolean b, final Message message) {
+    this.riljLog("Set Modem power as: " + b);
+    RILRequest rilRequest;
+    if (b) {
+        rilRequest = RILRequest.obtain(2028, message);
+    }
+    else {
+        rilRequest = RILRequest.obtain(2010, message);
+    }
+    this.riljLog(rilRequest.serialString() + "> " + requestToString(rilRequest.mRequest));
+    this.send(rilRequest);
+}
+
+
   //public void setTTYMode(int ttyMode, Message response) {
   //	riljLog("Not changin TTY mode");
   //	return;
