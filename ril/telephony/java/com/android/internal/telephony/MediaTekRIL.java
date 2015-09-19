@@ -153,7 +153,7 @@ cat libs/telephony/ril_unsol_commands.h \
           case RIL_UNSOL_SRVCC_STATE_NOTIFY:
                   return "UNSOL_SRVCC_STATE_NOTIFY";
           case RIL_UNSOL_HARDWARE_CONFIG_CHANGED: return "RIL_UNSOL_HARDWARE_CONFIG_CHANGED";
-          case RIL_UNSOL_ON_SS: return "UNSOL_ON_SS";
+          //case RIL_UNSOL_ON_SS: return "UNSOL_ON_SS";
           case RIL_UNSOL_STK_CC_ALPHA_NOTIFY: return "UNSOL_STK_CC_ALPHA_NOTIFY";
           case RIL_UNSOL_STK_SEND_SMS_RESULT: return "RIL_UNSOL_STK_SEND_SMS_RESULT";
           case RIL_UNSOL_SET_PHONE_RAT_FAMILY_COMPLETE: return "UNSOL_SET_PHONE_RAT_FAMILY_COMPLETE";
@@ -455,7 +455,7 @@ cat libs/telephony/ril_unsol_commands.h \
       case RIL_UNSOL_UICC_SUBSCRIPTION_STATUS_CHANGED: ret =  responseInts(p); break;
       case RIL_UNSOL_SRVCC_STATE_NOTIFY: ret = responseInts(p); break;
       case RIL_UNSOL_HARDWARE_CONFIG_CHANGED: ret = responseHardwareConfig(p); break;
-      case RIL_UNSOL_ON_SS: ret =  responseSsData(p); break;
+      //case RIL_UNSOL_ON_SS: ret =  responseSsData(p); break;
       case RIL_UNSOL_STK_CC_ALPHA_NOTIFY: ret =  responseString(p); break;
       case RIL_UNSOL_STK_SEND_SMS_RESULT: ret = responseInts(p); break; // Samsung STK
       case RIL_UNSOL_SET_PHONE_RAT_FAMILY_COMPLETE: ret = responseInts(p); break;
@@ -868,14 +868,14 @@ cat libs/telephony/ril_unsol_commands.h \
         new AsyncResult (null, ret, null));
       }
       break;
-      case RIL_UNSOL_ON_SS:
+      /*case RIL_UNSOL_ON_SS:
       if (RILJ_LOGD) unsljLogRet(response, ret);
 
       if (mSsRegistrant != null) {
         mSsRegistrant.notifyRegistrant(
         new AsyncResult (null, ret, null));
       }
-      break;
+      break;*/
       case RIL_UNSOL_STK_CC_ALPHA_NOTIFY:
       if (RILJ_LOGD) unsljLogRet(response, ret);
 
