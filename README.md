@@ -3,6 +3,9 @@ Cyanogenmod Arale device adaptation
 
 This repo is the device adaptation for Arale within CM 12.
 
+I am not responsible for what you do with this.
+This has only been tested with a Meizu MX4 ubuntu edition.
+
 How to build
 ============
 
