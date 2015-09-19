@@ -28,6 +28,9 @@ lib/hw/audio.primary.mt6595.so
 lib/hw/camera.mt6595.so
 lib/hw/hwcomposer.mt6595.so
 lib/hw/sensors.mt6595.so
+lib/hw/gps.default.so
+lib/hw/lights.default.so
+lib/hw/mmsdk.default.so
 lib/egl/egl.cfg
 
 lib/libgpu_aux.so
