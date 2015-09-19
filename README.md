@@ -6,6 +6,25 @@ This repo is the device adaptation for Arale within CM 12.
 I am not responsible for what you do with this.
 This has only been tested with a Meizu MX4 ubuntu edition.
 
+Working
+=======
+* Display
+* Touch
+* Orientation
+* Battery
+* Wifi
+* Sound
+* GPS
+
+Not working
+===========
+* Vibration
+* Cellular
+
+Issues
+======
+* Unable to turn the screen on once the screen has been turned off
+
 How to build
 ============
 
