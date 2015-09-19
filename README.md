@@ -15,6 +15,7 @@ Working
 * Wifi
 * Sound
 * GPS
+* Bluetooth
 * Camera (photo)
 
 Not working
