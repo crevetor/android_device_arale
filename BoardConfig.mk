@@ -105,4 +105,5 @@ BOARD_SEPOLICY_UNION += \
 			autokd.te \
 			mtk_agpsd.te \
 			install_recovery.te \
+			system_server.te \
 			radio.te

@@ -1,0 +1,2 @@
+allow system_server gps_device:chr_file { read open };
+allow system_server mnld:unix_dgram_socket sendto;

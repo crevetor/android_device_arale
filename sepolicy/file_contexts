@@ -23,6 +23,7 @@
 /dev/stpwmt(/.*)? u:object_r:stpwmt_device:s0
 /dev/ttyC2         u:object_r:agps_device:s0
 /dev/ttySDIO.* u:object_r:ttySDIO_device:s0
+/dev/gps(/.*)? u:object_r:gps_device:s0
 
 /sys/power/vcorefs/pwr_ctrl -- u:object_r:sysfs_vcorefs_pwrctrl:s0
 
