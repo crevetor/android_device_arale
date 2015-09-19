@@ -23,7 +23,6 @@ Not working
 * Vibration
 * Cellular
 * Camera (video)
-* Video encoding/decoding
 
 How to build
 ============
