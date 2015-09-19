@@ -28,6 +28,11 @@ PRODUCT_PACKAGES += \
         audio.a2dp.default \
         libblisrc
 
+# wifi
+PRODUCT_PACKAGES += \
+        lib_driver_cmd_mtk \
+	wpa_supplicant
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
