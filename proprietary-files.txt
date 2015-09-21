@@ -51,6 +51,7 @@ lib/libperfservicenative.so
 lib/libui_ext.so
 
 # Codecs
+etc/media_codecs.xml
 lib/libvcodecdrv.so
 lib/libmp4enc_sa.ca7.so
 lib/libvc1dec_sa.ca7.so
@@ -82,6 +83,39 @@ lib/libJpgDecPipe.so
 lib/libGdmaScalerPipe.so
 lib/libSwJpgCodec.so
 lib/libmmprofile.so
+extend/libCodec.ac3.so
+extend/libCodec.adpcmdec.so
+extend/libCodec.alacdec.so
+extend/libCodec.ape.so
+extend/libCodec.dsddec.so
+extend/libCodec.dts.so
+extend/libCodec.lpcm.so
+extend/libCodec.mp3dec.so
+extend/libCodec.mp3enc.so
+extend/libCodec.mpegdec.so
+extend/libCodec.radec.so
+extend/libCodec.raw.so
+extend/libCodec.rvdec.so
+extend/libCodec.wmadec.so
+extend/libExtractor.AC3.so
+extend/libExtractor.AIFF.so
+extend/libExtractor.APE.so
+extend/libExtractor.ASF.so
+extend/libExtractor.AVI.so
+extend/libExtractor.DSDIFF.so
+extend/libExtractor.DSF.so
+extend/libExtractor.DTS.so
+extend/libExtractor.FLAC.so
+extend/libExtractor.FLV.so
+extend/libExtractor.MP3.so
+extend/libExtractor.MPEG.so
+extend/libExtractor.MPEG2TS.so
+extend/libExtractor.MPEG4.so
+extend/libExtractor.REALMEDIA.so
+extend/libExtractor.SCADISO.so
+extend/libExtractor.WAV.so
+extend/libExtractor.matroska.so
+
 
 
 #Camera
